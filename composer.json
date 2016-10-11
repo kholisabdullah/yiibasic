@@ -1,4 +1,5 @@
 {
+
     "name": "yiisoft/yii2-app-basic",
     "description": "Yii 2 Basic Project Template",
     "keywords": ["yii2", "framework", "basic", "project template"],
@@ -17,7 +18,9 @@
         "php": ">=5.4.0",
         "yiisoft/yii2": ">=2.0.5",
         "yiisoft/yii2-bootstrap": "*",
-        "yiisoft/yii2-swiftmailer": "*"
+        "yiisoft/yii2-swiftmailer": "*",
+        "dmstr/yii2-adminlte-asset": "2.*"
+        "mervick/yii2-adminlte-gii": "*"
     },
     "require-dev": {
         "yiisoft/yii2-codeception": "*",
