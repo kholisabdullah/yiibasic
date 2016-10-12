@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use app\models\HitungParam;
 
 /**
  * This is the model class for table "tbl_alat".
@@ -18,8 +19,9 @@ use Yii;
  * @property string $suhu_akhir
  * @property string $nisbi_awal
  * @property string $nisbi_akhir
+ * @property string $no_label
  */
-class TblAlat extends \yii\db\ActiveRecord
+class Alat extends \yii\db\ActiveRecord
 {
     /**
      * @inheritdoc
@@ -37,7 +39,7 @@ class TblAlat extends \yii\db\ActiveRecord
         return [
             [['id_pekerjaan'], 'integer'],
             [['suhu_awal', 'suhu_akhir', 'nisbi_awal', 'nisbi_akhir'], 'number'],
-            [['nama_alat', 'merk', 'model', 'sn', 'kode_lembarkerja'], 'string', 'max' => 45],
+            [['nama_alat', 'merk', 'model', 'sn', 'kode_lembarkerja', 'no_label'], 'string', 'max' => 45],
         ];
     }
 
@@ -48,16 +50,26 @@ class TblAlat extends \yii\db\ActiveRecord
     {
         return [
             'id_alat' => 'Id Alat',
-            'id_pekerjaan' => 'Id Pekerjaan',
+            'id_pekerjaan' => 'foreign key untuk tabel pekerjaan',
             'nama_alat' => 'Nama Alat',
-            'merk' => 'Merk',
-            'model' => 'Model',
-            'sn' => 'Sn',
+            'merk' => 'Merk Alat',
+            'model' => 'Tipe Alat',
+            'sn' => 'Serial Number',
             'kode_lembarkerja' => 'Kode Lembarkerja',
             'suhu_awal' => 'Suhu Awal',
             'suhu_akhir' => 'Suhu Akhir',
             'nisbi_awal' => 'Nisbi Awal',
             'nisbi_akhir' => 'Nisbi Akhir',
+            'no_label' => 'nomor label',
         ];
+    }
+
+    /**
+     * Declaring relation with app\models\HitungParam
+     * @return yii\db\ActiveQueryInterface
+     */
+    public function getDaftarHitungParam()
+    {
+        return $this->hasMany(HitungParam::classname(), ['id_alat' => 'id_alat']);
     }
 }

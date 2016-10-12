@@ -3,6 +3,7 @@
 namespace app\models;
 
 use Yii;
+use app\models\Alat;
 
 /**
  * This is the model class for table "tbl_hitung_param".
@@ -45,12 +46,21 @@ class HitungParam extends \yii\db\ActiveRecord
     {
         return [
             'id_hitung_param' => 'Id Hitung Param',
-            'kode_param' => 'Kode Parameter',
-            'setting' => 'Setting',
-            'baca' => 'Baca',
-            'iterasi' => 'Iterasi',
+            'kode_param' => 'kode param dari tabel parameter',
+            'setting' => 'settingan di alat',
+            'baca' => 'pembacaan di alat',
+            'iterasi' => 'pengulangan',
             'keterangan' => 'Keterangan',
-            'id_alat' => 'Id Alat',
+            'id_alat' => 'foreign key untuk table alat',
         ];
+    }
+
+    /**
+     * Declaring relation with app\models\Alat
+     * @return yii\db\ActiveQueryInterface
+     */
+    public function getAlat()
+    {
+        return $this->hasOne(Alat::classname(), ['id_alat' => 'id_alat']);
     }
 }

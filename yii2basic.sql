@@ -31,7 +31,7 @@ USE `yii2basic`;
 DROP TABLE IF EXISTS `tbl_alat`;
 CREATE TABLE IF NOT EXISTS `tbl_alat` (
   `id_alat` int(11) NOT NULL AUTO_INCREMENT,
-  `id_pekerjaan` int(11) DEFAULT NULL COMMENT 'foreign key untuk tabel pekerjaan\n',
+  `id_pekerjaan` int(11) DEFAULT NULL COMMENT 'foreign key untuk tabel pekerjaan',
   `nama_alat` varchar(45) DEFAULT NULL,
   `merk` varchar(45) DEFAULT NULL,
   `model` varchar(45) DEFAULT NULL,
@@ -87,7 +87,7 @@ TRUNCATE TABLE `tbl_alatpekerjaan`;
 DROP TABLE IF EXISTS `tbl_hitung_param`;
 CREATE TABLE IF NOT EXISTS `tbl_hitung_param` (
   `id_hitung_param` int(11) NOT NULL AUTO_INCREMENT,
-  `kode_param` varchar(4) DEFAULT NULL COMMENT 'kode param dari tabel parameter\n',
+  `kode_param` varchar(4) DEFAULT NULL COMMENT 'kode param dari tabel parameter',
   `setting` decimal(10,0) DEFAULT NULL COMMENT 'settingan di alat',
   `baca` decimal(10,0) DEFAULT NULL COMMENT 'pembacaan di alat',
   `iterasi` int(11) DEFAULT NULL COMMENT 'pengulangan',
