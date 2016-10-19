@@ -151,7 +151,7 @@ $form = ActiveForm::begin([
 	</div>
 </div>
 
-<!-- BAGIAN KINERJA SPO2 -->
+<!-- BAGIAN KINERJA KELISTRIKAN -->
 <div class="row">
 	<div class="col-sm-12">
 		<div class="box box-info">
@@ -160,8 +160,39 @@ $form = ActiveForm::begin([
             </div><!-- /.box-header -->
             <!-- form start -->
             <div class="box-body">
-				<!-- Indeks 6 - 17: lihat controllers\PatientMonitorController.php baris 33 - 44 -->
-                <?php for ($i = 6; $i < 18; $i++): ?>
+				<!-- Indeks 6 - 16: lihat controllers\PatientMonitorController.php baris 45 - 56 -->
+                <?php for ($i = 6; $i < 17; $i++): ?>
+				<?php $hitungParam = $daftarHitungParam[$i] ?>
+                <div class="row">
+                    <label class="col-sm-5 control-label" for="">Setting <?= $hitungParam->keterangan ?></label>
+                    <div class="col-sm-7">
+						<?php $wrapper = ['wrapper' => 'col-sm-12',] ?>
+
+						<!-- Hitung Iterasi 1 -->
+						<div class="col-sm-3">
+							<?= $form->field($hitungParam, "[$i]baca", ['horizontalCssClasses' => $wrapper, 'inputOptions' => ['placeholder' => 'Pengukuran']])->label(false) ?>
+						</div>
+
+						
+                    </div>
+                </div>
+            	<?php endfor ?>
+            </div>
+        </div>
+	</div>
+</div>
+
+<!-- BAGIAN KINERJA SPO2 I-->
+<div class="row">
+	<div class="col-sm-12">
+		<div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title">Pengukuran Kinerja SPO2 Bagian I</h3>
+            </div><!-- /.box-header -->
+            <!-- form start -->
+            <div class="box-body">
+				<!-- Indeks 17 - 28: lihat controllers\PatientMonitorController.php baris 45 - 56 -->
+                <?php for ($i = 17; $i < 29; $i++): ?>
 				<?php $hitungParam = $daftarHitungParam[$i] ?>
                 <div class="row">
                     <label class="col-sm-2 control-label" for="">Setting <?= $hitungParam->setting ?></label>
@@ -174,6 +205,7 @@ $form = ActiveForm::begin([
 						</div>
 
 						<?php $i++ ?>
+						<!-- Hitung Iterasi 2 -->
 						<div class="col-sm-3">
 							<?= $form->field($hitungParam, "[$i]baca", ['horizontalCssClasses' => $wrapper, 'inputOptions' => ['placeholder' => 'Pengukuran']])->label(false) ?>
 						</div>
@@ -194,6 +226,145 @@ $form = ActiveForm::begin([
         </div>
 	</div>
 </div>
+
+<!-- BAGIAN KINERJA SPO2 II-->
+<div class="row">
+	<div class="col-sm-12">
+		<div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title">Pengukuran Kinerja SPO2 Bagian II</h3>
+            </div><!-- /.box-header -->
+            <!-- form start -->
+            <div class="box-body">
+				<!-- Indeks 29 - 40: lihat controllers\PatientMonitorController.php baris 58 - 69 -->
+                <?php for ($i = 29; $i < 41; $i++): ?>
+				<?php $hitungParam = $daftarHitungParam[$i] ?>
+                <div class="row">
+                    <label class="col-sm-2 control-label" for="">Setting <?= $hitungParam->setting ?></label>
+                    <div class="col-sm-10">
+						<?php $wrapper = ['wrapper' => 'col-sm-12',] ?>
+
+						<!-- Hitung Iterasi 1 -->
+						<div class="col-sm-3">
+							<?= $form->field($hitungParam, "[$i]baca", ['horizontalCssClasses' => $wrapper, 'inputOptions' => ['placeholder' => 'Pengukuran']])->label(false) ?>
+						</div>
+
+						<?php $i++ ?>
+						<!-- Hitung Iterasi 2 -->
+						<div class="col-sm-3">
+							<?= $form->field($hitungParam, "[$i]baca", ['horizontalCssClasses' => $wrapper, 'inputOptions' => ['placeholder' => 'Pengukuran']])->label(false) ?>
+						</div>
+
+						<!-- Hitung Iterasi 3 -->
+						<?php $i++ ?>
+						<div class="col-sm-3">
+							<?= $form->field($hitungParam, "[$i]baca", ['horizontalCssClasses' => $wrapper, 'inputOptions' => ['placeholder' => 'Pengukuran']])->label(false) ?>
+						</div>
+
+                        <div class="col-sm-3">
+	                        Toleransi 5 %
+                        </div>
+                    </div>
+                </div>
+            	<?php endfor ?>
+            </div>
+        </div>
+	</div>
+</div>
+
+<!-- BAGIAN KINERJA ECG-->
+<div class="row">
+	<div class="col-sm-12">
+		<div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title">Pengukuran ECG</h3>
+            </div><!-- /.box-header -->
+            <!-- form start -->
+            <div class="box-body">
+				<!-- Indeks 41 - 55: lihat controllers\PatientMonitorController.php baris 71 - 85 -->
+                <?php for ($i = 41; $i < 56; $i++): ?>
+				<?php $hitungParam = $daftarHitungParam[$i] ?>
+                <div class="row">
+                    <label class="col-sm-2 control-label" for="">Setting <?= $hitungParam->setting ?></label>
+                    <div class="col-sm-10">
+						<?php $wrapper = ['wrapper' => 'col-sm-12',] ?>
+
+						<!-- Hitung Iterasi 1 -->
+						<div class="col-sm-3">
+							<?= $form->field($hitungParam, "[$i]baca", ['horizontalCssClasses' => $wrapper, 'inputOptions' => ['placeholder' => 'Pengukuran']])->label(false) ?>
+						</div>
+
+						<?php $i++ ?>
+						<!-- Hitung Iterasi 2 -->
+						<div class="col-sm-3">
+							<?= $form->field($hitungParam, "[$i]baca", ['horizontalCssClasses' => $wrapper, 'inputOptions' => ['placeholder' => 'Pengukuran']])->label(false) ?>
+						</div>
+
+						<!-- Hitung Iterasi 3 -->
+						<?php $i++ ?>
+						<div class="col-sm-3">
+							<?= $form->field($hitungParam, "[$i]baca", ['horizontalCssClasses' => $wrapper, 'inputOptions' => ['placeholder' => 'Pengukuran']])->label(false) ?>
+						</div>
+
+                        <div class="col-sm-3">
+	                        Toleransi 5 %
+                        </div>
+                    </div>
+                </div>
+            	<?php endfor ?>
+            </div>
+        </div>
+	</div>
+</div>
+
+<!-- BAGIAN KINERJA NIBP-->
+<div class="row">
+	<div class="col-sm-12">
+		<div class="box box-info">
+            <div class="box-header with-border">
+                <h3 class="box-title">Pengukuran ECG</h3>
+            </div><!-- /.box-header -->
+            <!-- form start -->
+            <div class="box-body">
+				<!-- Indeks 41 - 55: lihat controllers\PatientMonitorController.php baris 71 - 85 -->
+                <?php for ($i = 56; $i < 59; $i++): ?>
+				<?php $hitungParam = $daftarHitungParam[$i] ?>
+                <div class="row">
+                    <label class="col-sm-2 control-label" for=""><?= $hitungParam->keterangan?></label>
+                    <div class="col-sm-10">
+						<?php $wrapper = ['wrapper' => 'col-sm-12',] ?>
+						<!-- Setting -->
+						<div class="col-sm-2">
+							<?= $form->field($hitungParam, "[$i]setting", ['horizontalCssClasses' => $wrapper, 'inputOptions' => ['placeholder' => 'Setting']])->label(false) ?>
+						</div>
+						<!-- Hitung Iterasi 1 -->
+						<div class="col-sm-2">
+							<?= $form->field($hitungParam, "[$i]baca", ['horizontalCssClasses' => $wrapper, 'inputOptions' => ['placeholder' => 'Pengukuran']])->label(false) ?>
+						</div>
+
+						<?php $i++ ?>
+						<!-- Hitung Iterasi 2 -->
+						<div class="col-sm-2">
+							<?= $form->field($hitungParam, "[$i]baca", ['horizontalCssClasses' => $wrapper, 'inputOptions' => ['placeholder' => 'Pengukuran']])->label(false) ?>
+						</div>
+
+						<!-- Hitung Iterasi 3 -->
+						<?php $i++ ?>
+						<div class="col-sm-2">
+							<?= $form->field($hitungParam, "[$i]baca", ['horizontalCssClasses' => $wrapper, 'inputOptions' => ['placeholder' => 'Pengukuran']])->label(false) ?>
+						</div>
+
+                        <div class="col-sm-2">
+	                        Toleransi 5 %
+                        </div>
+                    </div>
+                </div>
+            	<?php endfor ?>
+            </div>
+        </div>
+	</div>
+</div>
+
 
 <div class="row">
 	<div class="col-sm-12">
