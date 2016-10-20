@@ -87,11 +87,10 @@ class PatientMonitorController extends Controller
 				/* 56 */ ['kode_param' => 'NIBP','keterangan' => 'Systole', 'iterasi' => 1],
 				/* 57 */ ['kode_param' => 'NIBP','keterangan' => 'Systole', 'iterasi' => 2 ],
 				/* 58 */ ['kode_param' => 'NIBP','keterangan' => 'Systole', 'iterasi' => 3 ],
-				/* 57 */ ['kode_param' => 'NIBP','keterangan' => 'Diastole'],
-				/* 57 */ ['kode_param' => 'NIBP','keterangan' => 'Diastole'],
-				/* 57 */ ['kode_param' => 'NIBP','keterangan' => 'Diastole'],
-				/* 57 */ ['kode_param' => 'NIBP','keterangan' => 'Diastole'],
-				/* 57 */ ['kode_param' => 'NIBP','keterangan' => 'Diastole'],
+				/* 60 */ ['kode_param' => 'NIBP','keterangan' => 'Diastole', 'iterasi' => 1],
+				/* 61 */ ['kode_param' => 'NIBP','keterangan' => 'Diastole', 'iterasi' => 2 ],
+				/* 62 */ ['kode_param' => 'NIBP','keterangan' => 'Diastole', 'iterasi' => 3 ],
+				// /* 64 */ ['kode_param' => 'NIBP','keterangan' => 'Diastole'],
 			];
 
 		for ($i = 0; $i < count($daftarKeterangan); $i++) {
@@ -101,7 +100,11 @@ class PatientMonitorController extends Controller
 		if ($alat->load(Yii::$app->request->post()) && $alat->save()) {
 			Model::loadMultiple($daftarHitungParam, Yii::$app->request->post());
 
-			foreach ($daftarHitungParam as $hitungParam) {
+			foreach ($daftarHitungParam as $i => $hitungParam) {
+				// Set Param to NIBP, follow the lastest setting if empty
+				if ($i > 55 && $i < 63 && empty($hitungParam->setting)) {
+					$hitungParam->setting = $daftarHitungParam[$i - 1]->setting;
+				}
 				$hitungParam->link('alat', $alat);
 			}
             return $this->redirect(['view', 'id' => $alat->id_alat]);

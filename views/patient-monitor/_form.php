@@ -173,7 +173,7 @@ $form = ActiveForm::begin([
 							<?= $form->field($hitungParam, "[$i]baca", ['horizontalCssClasses' => $wrapper, 'inputOptions' => ['placeholder' => 'Pengukuran']])->label(false) ?>
 						</div>
 
-						
+
                     </div>
                 </div>
             	<?php endfor ?>
@@ -326,8 +326,7 @@ $form = ActiveForm::begin([
             </div><!-- /.box-header -->
             <!-- form start -->
             <div class="box-body">
-				<!-- Indeks 41 - 55: lihat controllers\PatientMonitorController.php baris 71 - 85 -->
-                <?php for ($i = 56; $i < 59; $i++): ?>
+                <?php for ($i = 56; $i < 62; $i++): ?>
 				<?php $hitungParam = $daftarHitungParam[$i] ?>
                 <div class="row">
                     <label class="col-sm-2 control-label" for=""><?= $hitungParam->keterangan?></label>
@@ -337,6 +336,7 @@ $form = ActiveForm::begin([
 						<div class="col-sm-2">
 							<?= $form->field($hitungParam, "[$i]setting", ['horizontalCssClasses' => $wrapper, 'inputOptions' => ['placeholder' => 'Setting']])->label(false) ?>
 						</div>
+
 						<!-- Hitung Iterasi 1 -->
 						<div class="col-sm-2">
 							<?= $form->field($hitungParam, "[$i]baca", ['horizontalCssClasses' => $wrapper, 'inputOptions' => ['placeholder' => 'Pengukuran']])->label(false) ?>
